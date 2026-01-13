@@ -1,0 +1,10 @@
+import { Module } from '@nestjs/common';
+import { BankAccountsService } from './bank-accounts.service';
+import { BankAccountsController } from './bank-accounts.controller';
+import { ValidateBankAccountOwnerService } from './validate-bank-account-owner.service';
+@Module({
+  controllers: [BankAccountsController],
+  providers: [BankAccountsService, ValidateBankAccountOwnerService],
+  exports: [ValidateBankAccountOwnerService],
+})
+export class BankAccountsModule {}
